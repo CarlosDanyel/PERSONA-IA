@@ -17,13 +17,15 @@ export const ClientChat = ({ message }: ClientChatProps) => {
     const [messages, setMessages] = useState<Message[]>([]);
 
     useEffect(() => {
-        const aiResponse = `wqahidajdjhiasbhjdgbhijapinda: "${message}"`;
+        if (message) {
+            const aiResponse = `wqahidajdjhiasbhjdgbhijapinda: "${message}"`;
 
-        setMessages((prevMessages) => [
-            ...prevMessages,
-            { sender: "user", text: message },
-            { sender: "ai", text: aiResponse },
-        ]);
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { sender: "user", text: message },
+                { sender: "ai", text: aiResponse },
+            ]);
+        }
     }, [message]);
 
     console.log(messages, messages);

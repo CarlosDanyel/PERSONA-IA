@@ -4,10 +4,12 @@ import { useState } from "react";
 import { ChatArea } from "./chat/chat-area";
 import { useForm, FormProvider } from "react-hook-form";
 import { ClientChat } from "./chat/messages";
+import { ButtonCloseChat } from "./chat/button-close-chat";
 
 export const ChatPage = () => {
     const methods = useForm();
     const [stateValue, setStateValue] = useState("");
+    const [open, setOpen] = useState(false);
 
     return (
         <>
@@ -16,6 +18,12 @@ export const ChatPage = () => {
                     {stateValue ? (
                         <section className="h-full flex flex-col justify-center">
                             <div className="mt-20">
+                                <ButtonCloseChat
+                                    close={open}
+                                    setClose={setOpen}
+                                    variant={"outline"}
+                                    className="rounded-xl"
+                                />
                                 <h1 className="font-title text-[35px] font-medium normal-case leading-[76px] tracking-[1px] text-start text-glow">
                                     Seja Muito Bem Vindo á Persona AI
                                 </h1>
@@ -30,6 +38,12 @@ export const ChatPage = () => {
                     ) : (
                         <section className="h-full">
                             <div className="mt-24">
+                                <ButtonCloseChat
+                                    close={open}
+                                    setClose={setOpen}
+                                    variant={"outline"}
+                                    className="rounded-xl"
+                                />
                                 <h1 className="font-title text-[35px] font-medium normal-case leading-[76px] tracking-[1px] text-start text-glow">
                                     Seja Muito Bem Vindo á Persona AI
                                 </h1>
