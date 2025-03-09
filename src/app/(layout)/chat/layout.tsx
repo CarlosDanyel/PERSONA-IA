@@ -4,6 +4,7 @@ import { AppSidebar } from "@/components/page/chat/sidebar";
 import { Separator } from "@/components/ui/separator";
 import { Breadcrumb } from "@/components/ui/breadcrumb/field";
 import { Toaster } from "sonner";
+import { SidebarLink } from "@/components/page/chat/sidebar-link";
 
 type ChatLayoutProps = {
     children: ReactNode;
@@ -33,6 +34,7 @@ export default function Chat({ children }: ChatLayoutProps) {
                 </div>
                 {children}
             </main>
+            <SidebarLink />
         </SidebarProvider>
     );
 }

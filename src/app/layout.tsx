@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter_Tight } from "next/font/google";
+import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import { cn } from "@/lib/utils";
 
-const fontTitle = Inter_Tight({
+const fontTitle = Inter({
     variable: "--font-title",
     subsets: ["latin"],
 });
 
-const fontSans = Inter_Tight({
+const fontSans = Inter({
     variable: "--font-sans",
     subsets: ["latin"],
 });
