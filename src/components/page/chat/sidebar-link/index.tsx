@@ -2,10 +2,11 @@ import { Tooltip } from "@/components/ui/tooltip";
 import {
     BriefcaseBusiness,
     CircleUser,
+    Component,
     Cpu,
     FolderKanban,
     Hammer,
-    LayoutGrid,
+    Layers,
     LucideIcon,
     Share2,
 } from "lucide-react";
@@ -20,7 +21,7 @@ type SidebarLinkProps = {
 const linksPageDirectTo: SidebarLinkProps = [
     {
         label: "Home",
-        icon: LayoutGrid,
+        icon: Component,
         url: "/",
     },
     {
@@ -30,11 +31,11 @@ const linksPageDirectTo: SidebarLinkProps = [
     },
     {
         label: "Serviços",
-        icon: FolderKanban,
+        icon: Layers,
         url: "/chat",
     },
     {
-        label: "Technologias",
+        label: "Tecnologias",
         icon: Cpu,
         url: "/chat",
     },
@@ -62,9 +63,9 @@ const linksPageDirectTo: SidebarLinkProps = [
 
 export const SidebarLink = () => {
     return (
-        <div className="h-screen w-fit border flex flex-col items-center justify-between px-3">
+        <div className="h-screen w-fit bg-sidebar border flex flex-col items-center justify-between px-3">
             <div></div>
-            <div className=" bg-sidebar flex flex-col gap-5 text-muted-foreground">
+            <div className="flex flex-col gap-6 text-muted-foreground">
                 {linksPageDirectTo.map((item, index) => (
                     <Tooltip
                         key={`${item.label}-${index}`}
