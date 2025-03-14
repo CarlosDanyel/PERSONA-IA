@@ -6,7 +6,8 @@ import { FooterSidebar } from "./footer-sidebar";
 import { AddNewChat } from "./add-new-chat";
 import { CollectionsChat } from "./collections-chat";
 import { SocialMedia } from "./social-medias";
-import { data } from "@/constants/chatData";
+import { Separator } from "@/components/ui/separator";
+import { WaitingList } from "./waiting-list";
 
 export const AppSidebar = ({
     ...props
@@ -20,7 +21,10 @@ export const AppSidebar = ({
             <div className=" pb-5 h-full w-full flex flex-col">
                 <SidebarContent className="px-4 mt-8">
                     <AddNewChat />
-                    <CollectionsChat chat={data.chat} />
+                    <Separator className="my-2" />
+                    <CollectionsChat />
+                    <WaitingList />
+                    <Separator className="my-2" />
                     <SocialMedia />
                 </SidebarContent>
                 <FooterSidebar mode="desktop" />

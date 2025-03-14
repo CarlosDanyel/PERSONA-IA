@@ -20,7 +20,6 @@ type SidebarLinkProps = {
     label: string;
     icon: LucideIcon;
     url: string;
-    backUrl?: string;
 }[];
 
 type DisplayMode = {
@@ -32,7 +31,6 @@ const linksPageDirectTo: SidebarLinkProps = [
         label: "Home",
         icon: Component,
         url: "/",
-        backUrl: "/persona",
     },
     {
         label: "Projetos",
@@ -75,26 +73,20 @@ const ContainerSidebarLink = ({ displayMode = "visible" }: DisplayMode) => (
     <div className="h-screen w-fit bg-sidebar border flex flex-col items-center justify-between px-3">
         <div></div>
         <div className="flex flex-col gap-6 text-muted-foreground">
-            {linksPageDirectTo
-                .slice(0, displayMode === "visible" ? undefined : 1)
-                .map((item, index) => (
-                    <Tooltip
-                        key={`${item.label}-${index}`}
-                        content={item.label}
-                        className="mr-5 rounded-xl"
+            {linksPageDirectTo.map((item, index) => (
+                <Tooltip
+                    key={`${item.label}-${index}`}
+                    content={item.label}
+                    className="mr-5 rounded-xl"
+                >
+                    <Link
+                        className="hover:text-white transition-all"
+                        href={displayMode === "visible" ? item.url : "/persona"}
                     >
-                        <Link
-                            className="hover:text-white transition-all"
-                            href={
-                                displayMode === "visible"
-                                    ? item.url
-                                    : item.backUrl || ""
-                            }
-                        >
-                            <item.icon size={18} />
-                        </Link>
-                    </Tooltip>
-                ))}
+                        <item.icon size={18} />
+                    </Link>
+                </Tooltip>
+            ))}
         </div>
         <div></div>
     </div>

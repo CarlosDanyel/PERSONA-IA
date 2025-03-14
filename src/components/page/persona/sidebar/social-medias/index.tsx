@@ -8,7 +8,7 @@ import { Medias } from "./medias";
 
 export const SocialMedia = () => {
     return (
-        <SidebarGroup className="pr-0 mt-auto">
+        <SidebarGroup className="pr-0">
             <SidebarGroupLabel className="text-sm pl-0 font-normal">
                 Redes Sociais
             </SidebarGroupLabel>

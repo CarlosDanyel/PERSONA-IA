@@ -1,1 +1,1 @@
-export const PAGE_CHAT = "/chat";
+export const PAGE_CHAT = "/persona/chat";
