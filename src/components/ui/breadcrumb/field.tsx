@@ -10,7 +10,7 @@ import { Fragment } from "react";
 type BreadcrumbProps = {
     data: {
         label: string;
-        url: string;
+        url?: string;
     }[];
 };
 

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { ButtonAnimate } from "../../../../ui/button-animate";
 
 type CardProjectsProps = {
     title: string;
@@ -18,17 +21,17 @@ export const CardProjects = ({
 }: CardProjectsProps) => {
     return (
         <Link
-            href={""}
-            className="group flex w-full h-[240px] border rounded-xl overflow-hidden px-7"
+            href={"/"}
+            className="group flex w-full h-[240px] border rounded-xl overflow-hidden pr-7"
         >
-            <div className="h-60 w-full max-w-[554px] min-w-[264px] flex">
+            <div className="h-60 w-full max-w-[554px] flex">
                 <Image
                     src={image}
                     alt=""
                     width={604}
                     height={100}
                     quality={100}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center group-hover:brightness-75 transition-all duration-700"
                 />
             </div>
             <div className="flex flex-col justify-between px-7 py-7">
@@ -41,12 +44,7 @@ export const CardProjects = ({
                         {description}
                     </p>
                 </div>
-                <div className="flex flex-col gap-1">
-                    <Link className="text-sm font-semibold" href={""}>
-                        Conheça o Projeto
-                    </Link>
-                    <div className="w-[130px] h-[1px] bg-white group-hover:w-full transition-all duration-700"></div>
-                </div>
+                <ButtonAnimate name="Conheça o Projeto" />
             </div>
         </Link>
     );

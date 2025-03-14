@@ -1,11 +1,10 @@
 import { CardProjects } from "./card-projects";
+import { TextTitle } from "./text-title";
 
 export const Projects = () => {
     return (
         <section className="flex flex-col gap-6 mt-10">
-            <h2 className="font-title text-2xl font-medium normal-case tracking-[-1px]">
-                Projetos e Soluções criadas com IA
-            </h2>
+            <TextTitle text="Projetos e Soluções criadas com IA" />
             <CardProjects
                 title="Modifyca | Criação de Currículos Profissionais"
                 description="A Modifyca é a plataforma definitiva para quem deseja um currículo profissional, moderno e otimizado para o mercado de trabalho."

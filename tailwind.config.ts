@@ -81,7 +81,7 @@ export default {
                         transform: "translateX(0)",
                     },
                     "100%": {
-                        transform: "translateX(calc(-51% - 389.5px))",
+                        transform: "translateX(calc(-14.5% - 700px))",
                     },
                 },
             },
@@ -93,5 +93,6 @@ export default {
     plugins: [
         require("tailwindcss-animate"),
         require("tailwind-scrollbar-hide"),
+        require("tailwindcss-animated"),
     ],
 } satisfies Config;

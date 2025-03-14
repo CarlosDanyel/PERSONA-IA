@@ -1,4 +1,7 @@
+"use client";
+
 import { Tooltip } from "@/components/ui/tooltip";
+import { PAGE_CHAT } from "@/constants/page";
 import {
     BriefcaseBusiness,
     CircleUser,
@@ -10,19 +13,26 @@ import {
     LucideIcon,
     Share2,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 type SidebarLinkProps = {
     label: string;
     icon: LucideIcon;
     url: string;
+    backUrl?: string;
 }[];
+
+type DisplayMode = {
+    displayMode?: "hidden" | "visible";
+};
 
 const linksPageDirectTo: SidebarLinkProps = [
     {
         label: "Home",
         icon: Component,
         url: "/",
+        backUrl: "/persona",
     },
     {
         label: "Projetos",
@@ -61,27 +71,42 @@ const linksPageDirectTo: SidebarLinkProps = [
     },
 ];
 
-export const SidebarLink = () => {
-    return (
-        <div className="h-screen w-fit bg-sidebar border flex flex-col items-center justify-between px-3">
-            <div></div>
-            <div className="flex flex-col gap-6 text-muted-foreground">
-                {linksPageDirectTo.map((item, index) => (
+const ContainerSidebarLink = ({ displayMode = "visible" }: DisplayMode) => (
+    <div className="h-screen w-fit bg-sidebar border flex flex-col items-center justify-between px-3">
+        <div></div>
+        <div className="flex flex-col gap-6 text-muted-foreground">
+            {linksPageDirectTo
+                .slice(0, displayMode === "visible" ? undefined : 1)
+                .map((item, index) => (
                     <Tooltip
                         key={`${item.label}-${index}`}
                         content={item.label}
-                        className="mr-5  rounded-xl"
+                        className="mr-5 rounded-xl"
                     >
                         <Link
                             className="hover:text-white transition-all"
-                            href={item.url}
+                            href={
+                                displayMode === "visible"
+                                    ? item.url
+                                    : item.backUrl || ""
+                            }
                         >
                             <item.icon size={18} />
                         </Link>
                     </Tooltip>
                 ))}
-            </div>
-            <div></div>
         </div>
+        <div></div>
+    </div>
+);
+
+export const SidebarLink = () => {
+    const pathname = usePathname();
+    console.log("Pathname:", pathname);
+
+    return (
+        <ContainerSidebarLink
+            displayMode={pathname.includes(PAGE_CHAT) ? "hidden" : "visible"}
+        />
     );
 };

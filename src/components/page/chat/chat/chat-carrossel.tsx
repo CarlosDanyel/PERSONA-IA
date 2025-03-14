@@ -4,24 +4,12 @@ import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
 
 const basePrompts = [
-    {
-        about: "Quero Conhecer o Carlos",
-    },
-    {
-        about: "Trabalhos",
-    },
-    {
-        about: "Experiencia",
-    },
-    {
-        about: "Como ele trabalha",
-    },
-    {
-        about: "Certificados",
-    },
-    {
-        about: "Currículo",
-    },
+    { about: "Quero Conhecer o Carlos" },
+    { about: "Trabalhos" },
+    { about: "Experiencia" },
+    { about: "Como ele trabalha" },
+    { about: "Certificados" },
+    { about: "Currículo" },
 ];
 
 type ChatCarrosselProps = {
@@ -43,8 +31,13 @@ export const ChatCarrossel = ({
     };
 
     return (
-        <div className="flex overflow-hidden w-[700px] ">
-            <div className="w-full flex gap-3 animate-infinite-scroll ">
+        <div
+            className={cn(
+                "flex overflow-hidden max-w-[700px] group",
+                "max-xl:max-w-[400px]"
+            )}
+        >
+            <div className="w-full flex gap-3 animate-infinite-scroll group-hover:animate-pause">
                 {[...basePrompts, ...basePrompts].map((item, index) => (
                     <button
                         key={`btn-${index}`}
