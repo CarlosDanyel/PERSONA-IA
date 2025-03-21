@@ -6,7 +6,7 @@ import { Persona } from "@/components/page/persona";
 export default function ChatID() {
     return (
         <Persona
-            title=" Seja Muito Bem Vindo á Persona AI"
+            title="Em que posso te ajudar?"
             description={
                 <>
                     {" "}

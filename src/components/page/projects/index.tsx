@@ -26,20 +26,14 @@ export const Projects = () => {
             </div>
             <div className="flex flex-wrap mt-10 gap-4 justify-between">
                 {data?.images.map((item) => {
-                    const Wrapper = data?.details.href ? Link : "div";
-                    const wrapperProps = data?.details.href
-                        ? { href: data?.details.href || "#" }
-                        : {};
-
                     return (
-                        <Wrapper
-                            {...wrapperProps}
-                            href={data?.details.href || "#"}
+                        <Link
+                            href={data?.details.href || data.details.repository}
+                            key={item}
                             className={cn(
                                 "group relative h-[400px] overflow-hidden flex-1 basis-[32%] grow rounded border",
                                 "hover:brightness-75 duration-150"
                             )}
-                            key={`project-${item}`}
                         >
                             <Image
                                 alt=""
@@ -50,7 +44,7 @@ export const Projects = () => {
                                 className="transition-all object-cover object-top h-full group-hover:object-bottom  duration-500"
                             />
                             <div className="absolute h-48 w-full bg-gradient-to-t from-black/80 bottom-0 "></div>
-                        </Wrapper>
+                        </Link>
                     );
                 })}
             </div>

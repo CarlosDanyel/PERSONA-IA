@@ -28,8 +28,6 @@ export const ClientChat = ({ message }: ClientChatProps) => {
         }
     }, [message]);
 
-    console.log(messages, messages);
-
     return (
         <div className=" my-6 w-full h-[34rem] bg-sidebar rounded-3xl overflow-y-auto pb-8 pt-6 px-28">
             {messages.map((item, index) =>

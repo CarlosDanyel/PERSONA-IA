@@ -56,6 +56,10 @@ export const projects: Project[] = [
             repository: "https://github.com/CarlosDanyel/Modifyca",
         },
         cardImage: "/assets/image-5.png",
-        images: ["/assets/modifyca-4-remover.png"],
+        images: [
+            "/assets/modifyca-4-remover.png",
+            "/assets/modifyca-5-remover.png",
+            "/assets/modifyca-6-remover.png",
+        ],
     },
 ];
