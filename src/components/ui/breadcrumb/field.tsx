@@ -1,40 +1,60 @@
 import {
     Breadcrumb as BreadcrumbContainer,
     BreadcrumbItem,
-    BreadcrumbLink,
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { breadcrumbs } from "@/constants/breadcrumb";
+import { PAGE_CHAT, PAGE_PROJECTS } from "@/constants/page";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 
-type BreadcrumbProps = {
-    data: {
-        label: string;
-        url?: string;
-    }[];
-};
+export const Breadcrumb = () => {
+    const pathname = usePathname();
 
-export const Breadcrumb = ({ data }: BreadcrumbProps) => {
+    const isChatPage = pathname.startsWith(`${PAGE_CHAT}/`);
+    const isProjectsPage = pathname.startsWith(`${PAGE_PROJECTS}/`);
+
+    const projectId = pathname.split("/").pop();
+
+    const data = breadcrumbs.find((item) => {
+        if (isChatPage) {
+            return item.page === PAGE_CHAT;
+        } else if (isProjectsPage && projectId) {
+            return (
+                item.page.includes(PAGE_PROJECTS) &&
+                item.page.includes(projectId)
+            );
+        } else {
+            return pathname.includes(item.page);
+        }
+    });
+
+    if (!data) {
+        return null;
+    }
+
     return (
         <BreadcrumbContainer>
             <BreadcrumbList>
-                {data.map((item, index) => {
-                    const isLast = index === data.length - 1;
+                {data.breadcrumb.map((item, index) => {
+                    const isLast = index === data.breadcrumb.length - 1;
 
                     return (
                         <Fragment key={`bread-${index}`}>
                             <BreadcrumbItem>
                                 {isLast ? (
-                                    <span className=" text-foreground">
+                                    <span className="text-foreground">
                                         {item.label}
                                     </span>
                                 ) : (
-                                    <BreadcrumbLink href={item.url}>
+                                    <Link href={item.url as string}>
                                         {item.label}
-                                    </BreadcrumbLink>
+                                    </Link>
                                 )}
                             </BreadcrumbItem>
-                            {!isLast && <BreadcrumbSeparator />}
+                            {!isLast && <BreadcrumbSeparator />}{" "}
                         </Fragment>
                     );
                 })}

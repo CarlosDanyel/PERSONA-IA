@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/page/persona/sidebar";
 import { Separator } from "@/components/ui/separator";
@@ -8,22 +8,12 @@ import { Breadcrumb } from "@/components/ui/breadcrumb/field";
 import { Toaster } from "sonner";
 import { SidebarLink } from "@/components/page/persona/navbar";
 import { ChatProvider } from "@/contexts/chat";
-import { usePathname } from "next/navigation";
-import { PAGE_CHAT } from "@/constants/page";
-import { breadcrumbData, chatBreadcrumb } from "@/constants/breadcrumb";
 
 type ChatLayoutProps = {
     children: ReactNode;
 };
 
 export default function ChatAI({ children }: ChatLayoutProps) {
-    const pathname = usePathname();
-
-    const breadcrumb = useMemo(
-        () => (pathname.includes(PAGE_CHAT) ? chatBreadcrumb : breadcrumbData),
-        [pathname]
-    );
-
     return (
         <ChatProvider>
             <SidebarProvider className="flex">
@@ -36,7 +26,7 @@ export default function ChatAI({ children }: ChatLayoutProps) {
                             orientation="vertical"
                             className="mx-3 h-4"
                         />
-                        <Breadcrumb data={breadcrumb} />
+                        <Breadcrumb />
                     </div>
                     {children}
                 </main>

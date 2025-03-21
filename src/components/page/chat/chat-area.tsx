@@ -9,8 +9,9 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { PAGE_CHAT } from "@/constants/page";
-import { useChat } from "@/contexts/chat";
+
 import { Button } from "@/components/ui/button";
+import { useChat } from "@/hook/useChat";
 
 export const ChatArea = () => {
     const [activeButton, setActiveButton] = useState<string | null | boolean>(
@@ -56,6 +57,13 @@ export const ChatArea = () => {
         setActiveButton(null);
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            handleSubmit(onsubmit)();
+        }
+    };
+
     return (
         <div className="bg-black border rounded-xl px-4 py-3 flex flex-col gap-2 mb-5 mt-auto">
             <form
@@ -67,6 +75,7 @@ export const ChatArea = () => {
                     maxRows={6}
                     placeholder="Em que posso te ajudar?"
                     autoFocus={false}
+                    onKeyDown={handleKeyDown}
                     {...register("message")}
                     className={cn(
                         "w-full h-fit resize-none focus:outline-none bg-transparent scrollbar-hide",

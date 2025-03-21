@@ -21,12 +21,23 @@ import Link from "next/link";
 import { Tooltip } from "@/components/ui/tooltip";
 import { useChat } from "@/hook/useChat";
 import { PAGE_CHAT } from "@/constants/page";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 export function CollectionsChat() {
     const { isMobile } = useSidebar();
     const { chats } = useChat();
+    const router = useRouter();
     const pathname = usePathname();
+    const { removeChat } = useChat();
+    const paramns = useParams();
+
+    const onDelete = (id: string) => {
+        removeChat(id);
+
+        if (pathname.includes(PAGE_CHAT) && id === paramns.id) {
+            router.push("/persona");
+        }
+    };
 
     return (
         <SidebarGroup className="group-data-[collapsible=icon]:hidden pr-0">
@@ -75,14 +86,22 @@ export function CollectionsChat() {
                                     side={isMobile ? "bottom" : "right"}
                                     align={isMobile ? "end" : "start"}
                                 >
-                                    <DropdownMenuItem>
-                                        <Folder className="text-muted-foreground" />
-                                        <span>Acessar o chat</span>
-                                    </DropdownMenuItem>
+                                    <Link
+                                        className="flex gap-2 w-full"
+                                        href={`/persona/chat/${item.id}`}
+                                    >
+                                        <DropdownMenuItem className="w-full">
+                                            <Folder className="text-muted-foreground" />
+                                            <span>Acessar o chat</span>
+                                        </DropdownMenuItem>
+                                    </Link>
+
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        onClick={() => onDelete(item.id)}
+                                    >
                                         <Trash2 className="text-muted-foreground" />
-                                        <span>Delete Chat</span>
+                                        <span>Deletar Chat</span>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { toast } from "sonner";
 import { PAGE_CHAT } from "@/constants/page";
@@ -10,6 +10,8 @@ type ChatContextType = {
     chats: Chat[];
     addMessage: (chatId: string, message: string) => void;
     createChat: (message: string) => string;
+    removeChat: (id: string) => void;
+    getChat: (id: string) => Message[] | undefined;
 };
 
 export const ChatContext = createContext<ChatContextType | undefined>(
@@ -75,6 +77,8 @@ export const ChatProvider = ({ children }: { children: React.ReactNode }) => {
             if (!chatExists) {
                 const newId = uuid();
 
+                router.push(`${PAGE_CHAT}/${newId}`);
+
                 updatedChats.push({
                     id: newId,
                     messages: [
@@ -87,8 +91,6 @@ export const ChatProvider = ({ children }: { children: React.ReactNode }) => {
                     createdAt: new Date().toISOString(),
                 });
 
-                router.push(`${PAGE_CHAT}/${newId}`);
-
                 toast.success("Chat criado com sucesso", {
                     style: { marginRight: "50px" },
                 });
@@ -98,19 +100,33 @@ export const ChatProvider = ({ children }: { children: React.ReactNode }) => {
         });
     };
 
+    const getChat = (id: string): Message[] | undefined => {
+        const chat = chats.find((chat) => chat.id === id);
+
+        return chat?.messages;
+    };
+
+    const removeChat = (id: string) => {
+        const storedChats = JSON.parse(localStorage.getItem("chats") || "[]");
+
+        const updatedChats = storedChats.filter(
+            (chat: { id: string }) => chat.id !== id
+        );
+
+        localStorage.setItem("chats", JSON.stringify(updatedChats));
+
+        setChats(updatedChats);
+
+        toast.success("Chat removido com sucesso", {
+            style: { marginRight: "50px" },
+        });
+    };
+
     return (
-        <ChatContext.Provider value={{ chats, addMessage, createChat }}>
+        <ChatContext.Provider
+            value={{ chats, addMessage, createChat, removeChat, getChat }}
+        >
             {children}
         </ChatContext.Provider>
     );
-};
-
-export const useChat = () => {
-    const context = useContext(ChatContext);
-
-    if (!context) {
-        throw new Error("useChat deve ser usado dentro de um ChatProvider");
-    }
-
-    return context;
 };

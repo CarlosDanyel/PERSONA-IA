@@ -37,7 +37,12 @@ export const ChatCarrossel = ({
                 "max-xl:max-w-[400px]"
             )}
         >
-            <div className="w-full flex gap-3 animate-infinite-scroll group-hover:animate-pause">
+            <div
+                className={cn(
+                    "w-full flex gap-3 animate-infinite-scroll group-hover:animate-pause",
+                    activeButton && "animate-pause"
+                )}
+            >
                 {[...basePrompts, ...basePrompts].map((item, index) => (
                     <button
                         key={`btn-${index}`}

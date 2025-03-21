@@ -10,7 +10,6 @@ export const AIMessage = ({ text }: AIMessageProps) => {
                 <AvatarImage src="" />
                 <AvatarFallback>PS</AvatarFallback>
             </Avatar>
-
             <span>{text}</span>
         </div>
     );

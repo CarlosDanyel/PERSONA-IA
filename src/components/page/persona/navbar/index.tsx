@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@/components/ui/tooltip";
-import { PAGE_CHAT } from "@/constants/page";
+import { PAGE_CHAT, PAGE_PERSONA } from "@/constants/page";
 import {
     BriefcaseBusiness,
     CircleUser,
@@ -94,11 +94,10 @@ const ContainerSidebarLink = ({ displayMode = "visible" }: DisplayMode) => (
 
 export const SidebarLink = () => {
     const pathname = usePathname();
-    console.log("Pathname:", pathname);
 
     return (
         <ContainerSidebarLink
-            displayMode={pathname.includes(PAGE_CHAT) ? "hidden" : "visible"}
+            displayMode={pathname.includes(PAGE_PERSONA) ? "hidden" : "visible"}
         />
     );
 };

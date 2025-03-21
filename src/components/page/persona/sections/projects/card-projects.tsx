@@ -10,6 +10,7 @@ type CardProjectsProps = {
     image: string;
     typeProject: string;
     date: string;
+    href: string;
 };
 
 export const CardProjects = ({
@@ -17,11 +18,12 @@ export const CardProjects = ({
     image,
     title,
     date,
+    href,
     typeProject: type,
 }: CardProjectsProps) => {
     return (
         <Link
-            href={"/"}
+            href={href}
             className="group flex w-full h-[240px] border rounded-xl overflow-hidden pr-7"
         >
             <div className="h-60 w-full max-w-[554px] flex">
@@ -40,7 +42,7 @@ export const CardProjects = ({
                         {type} <span className="text-white">✦</span> {date}
                     </span>
                     <b className="text-xl font-semibold">{title}</b>
-                    <p className="text-sm text-muted-foreground font-light max-w-[550px]">
+                    <p className="text-base text-muted-foreground font-light max-w-[550px]">
                         {description}
                     </p>
                 </div>
