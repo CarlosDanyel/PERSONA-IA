@@ -9,6 +9,7 @@ export const Projects = () => {
             <TextTitle text="Projetos e Soluções criadas com IA" />
             {projects.map((item) => (
                 <CardProjects
+                    logo={item.details.icon}
                     key={item.id}
                     title={item.subTitle}
                     description={item.subDescription}

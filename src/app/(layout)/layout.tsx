@@ -9,6 +9,8 @@ import { Toaster } from "sonner";
 import { SidebarLink } from "@/components/page/persona/navbar";
 import { ChatProvider } from "@/contexts/chat";
 
+import "swiper/css";
+
 type ChatLayoutProps = {
     children: ReactNode;
 };

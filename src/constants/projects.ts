@@ -1,3 +1,5 @@
+import LogoModifyca from "@/assets/modifycaLogo.svg";
+
 export const projects: Project[] = [
     {
         id: 1,
@@ -16,6 +18,7 @@ export const projects: Project[] = [
         details: {
             launch: "Jan, 28, 2025",
             type: "SASS",
+            icon: LogoModifyca,
             targets:
                 "210 usuários e 120 currículos baixados em seu primeiro mês de lançamento.",
             tech: [
@@ -46,6 +49,7 @@ export const projects: Project[] = [
             launch: "Jan, 28, 2025",
             type: "AGENT AI",
             targets: "Lançada e desenvolvida em tempo record - ( 2 meses )",
+            icon: LogoModifyca,
             tech: [
                 {
                     icon: "Javascript",

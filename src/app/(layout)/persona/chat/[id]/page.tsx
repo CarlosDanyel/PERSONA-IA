@@ -9,9 +9,8 @@ export default function ChatID() {
             title="Em que posso te ajudar?"
             description={
                 <>
-                    {" "}
-                    <span className="text-white">Carlos Danyel</span> e tambem
-                    sua assistente pessoal!
+                    
+                    <span className="text-white">Carlos Danyel</span> 
                 </>
             }
         >

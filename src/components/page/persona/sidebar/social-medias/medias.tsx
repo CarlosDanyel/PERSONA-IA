@@ -41,7 +41,9 @@ export const Medias = () => (
                     className="ml-2 rounded-[.3rem]"
                 >
                     {link ? (
-                        <Link href={link}>{Content}</Link>
+                        <Link passHref target="_blank" href={link}>
+                            {Content}
+                        </Link>
                     ) : (
                         <div>{Content}</div>
                     )}

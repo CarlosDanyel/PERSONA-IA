@@ -1,6 +1,6 @@
 import { Experience } from "./experience";
 import { Projects } from "./projects";
-import { Services } from "./services";
+import { Services } from "./Other";
 
 export const Sections = () => {
     return (

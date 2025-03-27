@@ -22,6 +22,7 @@ type Detail = {
     repository: string;
     targets: string;
     href?: string;
+    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
 type Project = {
@@ -33,4 +34,18 @@ type Project = {
     details: Detail;
     cardImage: string;
     images: string[];
+};
+
+type TechToolItem = {
+    label: string;
+    icon: IconType;
+};
+
+type TechTools = {
+    techs: {
+        main: TechToolItem[];
+        cloud: TechToolItem[];
+        banks: TechToolItem[];
+    }[];
+    tools: TechToolItem[];
 };
