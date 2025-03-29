@@ -21,7 +21,7 @@ export default function ChatAI({ children }: ChatLayoutProps) {
             <SidebarProvider className="flex">
                 <Toaster position="top-right" theme="dark" richColors />
                 <AppSidebar />
-                <main className="h-screen flex flex-col w-full pr-28 pl-24 pt-8">
+                <main className="h-screen flex flex-col w-full pr-28 pl-24 pt-8 overflow-hidden">
                     <div className="h-fit flex items-center">
                         <SidebarTrigger />
                         <Separator

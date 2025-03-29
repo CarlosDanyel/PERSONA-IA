@@ -18,7 +18,7 @@ export const CustomSwiper = ({ items, className }: CustomSwiperProps) => {
             spaceBetween={20}
             freeMode={true}
             modules={[FreeMode]}
-            className={`w-full max-w-[1380px] flex !flex-col justify-start gap-3 overflow-hidden ${className}`}
+            className={`w-full flex flex-1 basis-[10%] !flex-col justify-start gap-3  !ml-0 overflow-hidden ${className}`}
         >
             {items.map((item) => (
                 <SwiperSlide key={item.label} className="!w-fit ml-1">

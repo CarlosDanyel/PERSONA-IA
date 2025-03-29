@@ -18,7 +18,7 @@ export const ButtonTechTool = ({
                 open && "border-white bg-neutral-900"
             )}
         >
-            {!open && "✦ "}
+            {open && "✦ "}
             {title}
         </button>
     );

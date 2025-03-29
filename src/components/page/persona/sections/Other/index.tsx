@@ -3,9 +3,9 @@ import { TechsAndServices } from "./techs-tool";
 
 export const Services = () => {
     return (
-        <section className="w-full h-full max-h-[354px] mt-20 flex flex-col gap-6">
-            <TextTitle text="Tecnologias, Serviços e Ferramentas" />
-            <div className="flex justify-between gap-5 h-full">
+        <section className="w-full mt-20 gap-2 flex">
+            <div className="w-full flex flex-col gap-6">
+                <TextTitle text="Tecnologias e Ferramentas" />
                 <TechsAndServices />
             </div>
         </section>

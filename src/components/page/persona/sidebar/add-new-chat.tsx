@@ -9,7 +9,7 @@ export const AddNewChat = () => {
         <SidebarGroup>
             <Link href={`${PAGE_CHAT}/new`} className="w-full">
                 <Button
-                    className="rounded-2xl flex gap-2 w-full"
+                    className="rounded-2xl flex gap-2 w-full outline-none"
                     size={"sm"}
                     variant={"outline"}
                 >
