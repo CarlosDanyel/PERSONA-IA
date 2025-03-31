@@ -28,6 +28,7 @@ export const Projects = () => {
                 {data?.images?.map((item) => {
                     return (
                         <Link
+                            target="_blank"
                             href={data?.details.href || data.details.repository}
                             key={item}
                             className={cn(
@@ -83,6 +84,7 @@ export const Projects = () => {
                             Acesse a {data?.title}:{" "}
                             <span className="text-[#7E7E7E]">
                                 <Link
+                                    target="_blank"
                                     className="hover:text-blue-400 transition-all duration-200"
                                     href={data?.details.href as string}
                                 >
@@ -97,6 +99,7 @@ export const Projects = () => {
                         Link do Repositório:{" "}
                         <span className="text-[#7E7E7E]">
                             <Link
+                                target="_blank"
                                 className="hover:text-blue-400 transition-all duration-200"
                                 href={data?.details.repository as string}
                             >
