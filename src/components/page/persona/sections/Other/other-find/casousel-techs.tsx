@@ -18,13 +18,13 @@ export const CustomSwiper = ({ items, className }: CustomSwiperProps) => {
             spaceBetween={20}
             freeMode={true}
             modules={[FreeMode]}
-            className={`w-full flex flex-1 basis-[10%] !flex-col justify-start gap-3  !ml-0 overflow-hidden ${className}`}
+            className={`w-full flex flex-1 basis-[10%] !flex-col justify-start gap-2 !ml-0 overflow-hidden ${className}`}
         >
             {items.map((item) => (
                 <SwiperSlide key={item.label} className="!w-fit ml-1">
-                    <div className="w-fit flex gap-3 py-6 px-8 border rounded-xl cursor-pointer bg-sidebar">
+                    <div className="w-fit flex items-center gap-3 py-3 px-4 border rounded-xl cursor-pointer bg-sidebar">
                         <item.icon className="text-xl" />
-                        <span className="text-base whitespace-nowrap">
+                        <span className="text-sm whitespace-nowrap">
                             {item.label}
                         </span>
                     </div>

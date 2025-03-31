@@ -29,8 +29,8 @@ export const TechsAndServices = () => {
     }[open || "techs"];
 
     return (
-        <div className="w-full h-fit p-6 border rounded-xl overflow-hidden">
-            <div className="flex flex-col gap-6">
+        <div className="w-full h-fit p-6  overflow-hidden">
+            <div className="flex flex-col gap-12">
                 <div className="flex justify-between">
                     <h4 className="font-title text-[22px] font-medium normal-case tracking-[-1px]">
                         {sectionTitle}

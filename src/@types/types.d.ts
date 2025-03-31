@@ -19,13 +19,14 @@ type Detail = {
     launch: string;
     tech: Tech[];
     type: "SASS" | "AGENT AI" | "AI" | "PRODUCT";
+    status: "Prod" | "Dev";
     repository: string;
     targets: string;
     href?: string;
     icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
-type Project = {
+export type Project = {
     id: uuid;
     title: string;
     subTitle: string;
@@ -33,7 +34,7 @@ type Project = {
     subDescription: string;
     details: Detail;
     cardImage: string;
-    images: string[];
+    images?: string[];
 };
 
 type TechToolItem = {
@@ -48,4 +49,10 @@ type TechTools = {
         banks: TechToolItem[];
     }[];
     tools: TechToolItem[];
+};
+
+type Media = {
+    name: string;
+    link?: string;
+    icon: React.ElementType;
 };

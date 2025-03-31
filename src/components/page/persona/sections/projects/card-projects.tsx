@@ -4,38 +4,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonAnimate } from "../../../../ui/button-animate";
 import { CirclePulse } from "./circle-pulse";
+import { Project as ProjectType } from "@/@types/types";
+
+type LogoType = React.FC<React.SVGProps<SVGSVGElement>>;
 
 type CardProjectsProps = {
-    title: string;
-    description: string;
-    image: string;
-    typeProject: string;
-    date: string;
+    project: ProjectType;
     href: string;
-    logo?: React.FC<React.SVGProps<SVGSVGElement>>;
+    logo?: LogoType;
 };
 
-export const CardProjects = ({
-    description,
-    image,
-    title,
-    date,
-    href,
-    logo: Logo,
-    typeProject: type,
-}: CardProjectsProps) => {
+const Project = ({
+    project,
+    Logo,
+}: {
+    project: ProjectType;
+    Logo?: LogoType;
+}) => {
     return (
-        <Link
-            href={href}
-            className="group flex w-full h-[240px] border rounded-xl overflow-hidden pr-7 relative"
-        >
+        <div className="group flex w-full h-full border rounded-xl overflow-hidden pr-7 relative">
+            {project.details.status === "Dev" && (
+                <div className="absolute w-full h-full top-0 bg-black/40 z-30 select-none" />
+            )}
             {Logo && (
                 <Logo className="h-12 w-12 absolute top-4 right-4 rounded-[.3rem]" />
             )}
-            <div className="h-60 w-full max-w-[554px] flex">
+            <div className="h-64 w-full max-w-[554px] flex overflow-hidden">
                 <Image
-                    src={image}
-                    alt=""
+                    src={project.cardImage}
+                    alt={project.subTitle || "Project Image"}
                     width={604}
                     height={100}
                     quality={100}
@@ -45,16 +42,49 @@ export const CardProjects = ({
             <div className="flex flex-col justify-between px-7 py-7">
                 <div className="w-full h-full flex flex-col gap-4">
                     <span className="text-sm text-muted-foreground font-light flex gap-2 items-center">
-                        <CirclePulse color="green" />
-                        {type} <span className="text-white">✦</span> {date}
+                        <CirclePulse
+                            color={
+                                project.details.status === "Dev"
+                                    ? "red"
+                                    : "green"
+                            }
+                        />
+                        {project.details.type}{" "}
+                        <span className="text-white">✦</span>{" "}
+                        {project.details.launch}
                     </span>
-                    <b className="text-xl font-semibold">{title}</b>
+                    <b className="text-xl font-semibold">{project.subTitle}</b>
                     <p className="text-base text-muted-foreground font-light max-w-[550px]">
-                        {description}
+                        {project.subDescription}
                     </p>
                 </div>
-                <ButtonAnimate name="Conheça o Projeto" />
+                <ButtonAnimate
+                    className="mt-6"
+                    name={
+                        project.details.status === "Dev"
+                            ? "Em Desenvolvimento"
+                            : "Conheça o Projeto"
+                    }
+                />
             </div>
-        </Link>
+        </div>
+    );
+};
+
+export const CardProjects = ({
+    project,
+    logo: Logo,
+    href,
+}: CardProjectsProps) => {
+    return (
+        <>
+            {project.details.status === "Dev" ? (
+                <Project project={project} Logo={Logo} />
+            ) : (
+                <Link href={href || ""}>
+                    <Project project={project} Logo={Logo} />
+                </Link>
+            )}
+        </>
     );
 };

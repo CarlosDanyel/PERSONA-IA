@@ -1,13 +1,19 @@
 import { Experience } from "./experience";
 import { Projects } from "./projects";
-import { Services } from "./Other";
+import { Others } from "./Other";
+import { Separator } from "@/components/ui/separator";
+import { Footer } from "@/components/common/Footer";
 
 export const Sections = () => {
     return (
         <div className="w-full h-full mt-7">
-            <Projects />
-            <Experience />
-            <Services />
+            <main>
+                <Projects />
+                <Experience />
+                <Others />
+            </main>
+            <Separator className="mt-16" />
+            <Footer />
         </div>
     );
 };

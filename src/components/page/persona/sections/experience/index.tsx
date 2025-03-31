@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TextTitle } from "../projects/text-title";
+import { TextTitle } from "../../../../common/Text-title";
 import { ButtonAnimate } from "../../../../ui/button-animate";
 import Link from "next/link";
 

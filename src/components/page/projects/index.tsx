@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { TextTitle } from "../persona/sections/projects/text-title";
+import { TextTitle } from "../../common/Text-title";
 
 export const Projects = () => {
     const params = useParams();
@@ -25,7 +25,7 @@ export const Projects = () => {
                 </p>
             </div>
             <div className="flex flex-wrap mt-10 gap-4 justify-between">
-                {data?.images.map((item) => {
+                {data?.images?.map((item) => {
                     return (
                         <Link
                             href={data?.details.href || data.details.repository}

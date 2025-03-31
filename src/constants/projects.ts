@@ -19,6 +19,7 @@ export const projects: Project[] = [
             launch: "Jan, 28, 2025",
             type: "SASS",
             icon: LogoModifyca,
+            status: "Prod",
             targets:
                 "210 usuários e 120 currículos baixados em seu primeiro mês de lançamento.",
             tech: [
@@ -48,6 +49,7 @@ export const projects: Project[] = [
         details: {
             launch: "Jan, 28, 2025",
             type: "AGENT AI",
+            status: "Prod",
             targets: "Lançada e desenvolvida em tempo record - ( 2 meses )",
             icon: LogoModifyca,
             tech: [
@@ -65,5 +67,37 @@ export const projects: Project[] = [
             "/assets/modifyca-5-remover.png",
             "/assets/modifyca-6-remover.png",
         ],
+    },
+    {
+        id: 3,
+        title: "VYRAL ",
+        subTitle: "VYRAL | Seu Radar de Conteúdos Virais na Internet",
+        description:
+            "O Tery é um agente de inteligência artificial projetado para encontrar e filtrar os conteúdos mais virais da internet. Com algoritmos avançados de análise e curadoria, ele identifica tendências emergentes e entrega os melhores resultados em tempo real, ajudando criadores, empresas e entusiastas a se manterem sempre à frente.",
+        subDescription:
+            "Descubra o que está em alta antes de todo mundo. O Tery analisa milhões de fontes para trazer os conteúdos mais relevantes e engajadores do momento.",
+        details: {
+            launch: "Em breve",
+            type: "PRODUCT",
+            status: "Dev",
+            targets:
+                "A solução definitiva para quem quer acompanhar tendências e viralizar na internet.",
+            tech: [
+                {
+                    icon: "Next.js",
+                    label: "Next.js",
+                },
+                {
+                    icon: "TypeScript",
+                    label: "TypeScript",
+                },
+                {
+                    icon: "AI",
+                    label: "Inteligência Artificial",
+                },
+            ],
+            repository: "https://github.com/CarlosDanyel/Tery",
+        },
+        cardImage: "/assets/image-7.png",
     },
 ];

@@ -1,35 +1,25 @@
 import { Tooltip } from "@/components/ui/tooltip";
-import { Mail, PhoneCall } from "lucide-react";
+import { medias } from "@/constants/medias";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { GithubLogo, LinkedinLogo } from "phosphor-react";
 
-const medias = [
-    {
-        name: "Linkedin",
-        link: "https://www.linkedin.com/in/carlosdanyelsilvateixeira",
-        icon: LinkedinLogo,
-    },
-    {
-        name: "Github",
-        link: "https://github.com/CarlosDanyel",
-        icon: GithubLogo,
-    },
-    {
-        name: "carlosdanyel@gmail.com",
-        icon: Mail,
-    },
-    {
-        name: "55+ (11)985673241",
-        icon: PhoneCall,
-    },
-];
+type MediasSectionProps = {
+    session?: "medias" | "other";
+};
 
-export const Medias = () => (
+export const Medias = ({ session = "medias" }: MediasSectionProps) => (
     <>
         {medias.map(({ name, link, icon: Icon }, index) => {
+            const classNameMedia =
+                session === "other" &&
+                cn(
+                    "p-12 border rounded-xl cursor-pointer hover:bg-sidebar hover:text-white hover:border-white",
+                    "duration-700 transition-all text-sod text-zinc-300"
+                );
+
             const Content = (
                 <Icon
-                    size={19}
+                    size={session === "other" ? 26 : 19}
                     className="hover:text-white transition-all duration-500 cursor-pointer"
                 />
             );
@@ -40,12 +30,15 @@ export const Medias = () => (
                     key={`media-${index}`}
                     className="ml-2 rounded-[.3rem]"
                 >
-                    {link ? (
-                        <Link passHref target="_blank" href={link}>
+                    {link && (
+                        <Link
+                            className={classNameMedia as string}
+                            passHref
+                            target="_blank"
+                            href={link}
+                        >
                             {Content}
                         </Link>
-                    ) : (
-                        <div>{Content}</div>
                     )}
                 </Tooltip>
             );

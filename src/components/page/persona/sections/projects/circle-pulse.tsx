@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 type CirclePulseProps = {
-    color?: "green" | "white";
+    color?: "green" | "white" | "red";
 };
 
 export const CirclePulse = ({ color }: CirclePulseProps) => {
@@ -9,7 +9,11 @@ export const CirclePulse = ({ color }: CirclePulseProps) => {
         <div
             className={cn(
                 "w-2 h-2 animate-pulse rounded-full",
-                color === "green" ? "bg-green-500" : "bg-white"
+                color === "green"
+                    ? "bg-green-500"
+                    : color === "red"
+                    ? "bg-orange-500"
+                    : "bg-white"
             )}
         />
     );
