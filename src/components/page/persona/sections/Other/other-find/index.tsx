@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ButtonTechTool } from "./button-tech";
+
 import { TechToolsData } from "@/constants/techs-tools";
-import { CustomSwiper } from "./casousel-techs";
+import { ButtonTechTool } from "./button-tech";
+import { CustomSwiper } from "./casousel-tech";
 
 export const TechsAndServices = () => {
     const [open, setOpen] = useState<

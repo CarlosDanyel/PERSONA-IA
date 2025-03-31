@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { BackPage } from "@/components/ui/BackPage";
 import { usePathname } from "next/navigation";
 import { PAGE_CHAT } from "@/constants/page";
+import { SECTION_HOME } from "@/constants/sections";
 
 type PersonaProps = {
     title: string;
@@ -30,12 +31,16 @@ export const Persona = ({
         <>
             <FormProvider {...methods}>
                 <div
+                    id={SECTION_HOME}
                     className={cn(
                         "h-full flex flex-col justify-between overflow-hidden",
                         className
                     )}
                 >
-                    <div className="overflow-y-auto scrollbar-hide h-full flex flex-col justify-between my-7">
+                    <div
+                        id="scroll-container"
+                        className="overflow-y-auto scrollbar-hide h-full flex flex-col justify-between my-7"
+                    >
                         <section className="h-fit flex flex-col justify-start">
                             {isPagePersona && <BackPage className="mt-6" />}
                             <div

@@ -2,14 +2,15 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
+import { cn } from "@/lib/utils";
 
-interface CustomSwiperProps {
+type CustomSwiperProps = {
     items: {
         label: string;
         icon: React.ComponentType<{ className?: string }>;
     }[];
     className?: string;
-}
+};
 
 export const CustomSwiper = ({ items, className }: CustomSwiperProps) => {
     return (
@@ -22,7 +23,12 @@ export const CustomSwiper = ({ items, className }: CustomSwiperProps) => {
         >
             {items.map((item) => (
                 <SwiperSlide key={item.label} className="!w-fit ml-1">
-                    <div className="w-fit flex items-center gap-3 py-3 px-4 border rounded-xl cursor-pointer bg-sidebar">
+                    <div
+                        className={cn(
+                            "w-fit flex text-muted-foreground items-center gap-3 py-3 px-4 border rounded-xl cursor-pointer bg-sidebar",
+                            "hover:border-white duration-700 hover:text-white"
+                        )}
+                    >
                         <item.icon className="text-xl" />
                         <span className="text-sm whitespace-nowrap">
                             {item.label}

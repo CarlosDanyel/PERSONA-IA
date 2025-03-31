@@ -2,10 +2,11 @@ import Image from "next/image";
 import { TextTitle } from "../../../../common/Text-title";
 import { ButtonAnimate } from "../../../../ui/button-animate";
 import Link from "next/link";
+import { SECTION_EXPERIENCE } from "@/constants/sections";
 
 export const Experience = () => {
     return (
-        <section className="mt-20 flex flex-col gap-6">
+        <section id={SECTION_EXPERIENCE} className="mt-20 flex flex-col gap-6">
             <TextTitle text=" Descubra as Experiências do Carlos" />
 
             <Link

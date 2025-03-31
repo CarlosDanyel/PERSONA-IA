@@ -1,6 +1,6 @@
 import { Experience } from "./experience";
 import { Projects } from "./projects";
-import { Others } from "./Other";
+import { Others } from "./other";
 import { Separator } from "@/components/ui/separator";
 import { Footer } from "@/components/common/Footer";
 

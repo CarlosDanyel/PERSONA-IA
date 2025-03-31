@@ -8,12 +8,13 @@ import { TechsAndServices } from "./other-find";
 import { Medias } from "../../sidebar/social-medias/medias";
 import { useClock } from "@/hook/useClock";
 import Link from "next/link";
+import { SECTION_OTHER } from "@/constants/sections";
 
 export const Others = () => {
     const time = useClock();
 
     return (
-        <section className="w-full mt-20 gap-2 flex">
+        <section id={SECTION_OTHER} className="w-full mt-20 gap-2 flex">
             <div className=" w-full flex flex-col gap-6">
                 <TextTitle text="Tecnologias, Ferramentas e Redes" />
                 <div className=" flex gap-5 flex-wrap">

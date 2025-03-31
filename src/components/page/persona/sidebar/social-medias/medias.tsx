@@ -13,14 +13,17 @@ export const Medias = ({ session = "medias" }: MediasSectionProps) => (
             const classNameMedia =
                 session === "other" &&
                 cn(
-                    "p-12 border rounded-xl cursor-pointer hover:bg-sidebar hover:text-white hover:border-white",
-                    "duration-700 transition-all text-sod text-zinc-300"
+                    "p-12 border rounded-xl cursor-pointer duration-700 hover:bg-sidebar hover:border-white",
+                    "transition-all text-sod text-muted-foreground hover:text-white"
                 );
 
             const Content = (
                 <Icon
                     size={session === "other" ? 26 : 19}
-                    className="hover:text-white transition-all duration-500 cursor-pointer"
+                    className={
+                        session === "medias" &&
+                        "hover:text-white transition-all duration-500 cursor-pointer"
+                    }
                 />
             );
 
