@@ -1,6 +1,12 @@
 import { Mail, PhoneCall } from "lucide-react";
 import { GithubLogo, LinkedinLogo } from "phosphor-react";
 
+type Media = {
+    name: string;
+    link?: string;
+    icon: React.ElementType;
+};
+
 export const medias: Media[] = [
     {
         name: "Linkedin",

@@ -26,7 +26,7 @@ type Detail = {
     icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
-export type Project = {
+type Project = {
     id: uuid;
     title: string;
     subTitle: string;
@@ -49,10 +49,4 @@ type TechTools = {
         banks: TechToolItem[];
     }[];
     tools: TechToolItem[];
-};
-
-type Media = {
-    name: string;
-    link?: string;
-    icon: React.ElementType;
 };

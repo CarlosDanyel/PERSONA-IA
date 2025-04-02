@@ -1,4 +1,3 @@
-import { Project } from "@/@types/types";
 import LogoModifyca from "@/assets/modifycaLogo.svg";
 
 export const projects: Project[] = [

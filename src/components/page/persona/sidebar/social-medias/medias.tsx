@@ -20,10 +20,10 @@ export const Medias = ({ session = "medias" }: MediasSectionProps) => (
             const Content = (
                 <Icon
                     size={session === "other" ? 26 : 19}
-                    className={
+                    className={cn(
                         session === "medias" &&
-                        "hover:text-white transition-all duration-500 cursor-pointer"
-                    }
+                            "hover:text-white transition-all duration-500 cursor-pointer"
+                    )}
                 />
             );
 

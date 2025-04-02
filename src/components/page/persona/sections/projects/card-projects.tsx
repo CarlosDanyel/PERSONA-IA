@@ -4,9 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonAnimate } from "../../../../ui/button-animate";
 import { CirclePulse } from "./circle-pulse";
-import { Project as ProjectType } from "@/@types/types";
 
 type LogoType = React.FC<React.SVGProps<SVGSVGElement>>;
+
+type ProjectType = {
+    title: string;
+    subTitle: string;
+    description: string;
+    subDescription: string;
+    details: Detail;
+    cardImage: string;
+    images?: string[];
+};
 
 type CardProjectsProps = {
     project: ProjectType;
@@ -22,14 +31,14 @@ const Project = ({
     Logo?: LogoType;
 }) => {
     return (
-        <div className="group flex w-full h-full border rounded-xl overflow-hidden pr-7 relative">
+        <div className="group flex w-full h-full max-h-64 border rounded-xl overflow-hidden pr-7 relative">
             {project.details.status === "Dev" && (
                 <div className="absolute w-full h-full top-0 bg-black/40 z-30 select-none" />
             )}
             {Logo && (
                 <Logo className="h-12 w-12 absolute top-4 right-4 rounded-[.3rem]" />
             )}
-            <div className="h-64 w-full max-w-[554px] flex overflow-hidden">
+            <div className="w-full max-w-[554px]">
                 <Image
                     src={project.cardImage}
                     alt={project.subTitle || "Project Image"}
@@ -53,13 +62,16 @@ const Project = ({
                         <span className="text-white">✦</span>{" "}
                         {project.details.launch}
                     </span>
-                    <b className="text-xl font-semibold">{project.subTitle}</b>
-                    <p className="text-base text-muted-foreground font-light max-w-[550px]">
+                    <b className="text-xl font-semibold line-clamp-2">
+                        {project.subTitle}
+                    </b>
+                    <p className="text-base text-muted-foreground font-light max-w-[550px] line-clamp-2">
                         {project.subDescription}
                     </p>
                 </div>
                 <ButtonAnimate
                     className="mt-6"
+                    status={project.details.status}
                     name={
                         project.details.status === "Dev"
                             ? "Em Desenvolvimento"

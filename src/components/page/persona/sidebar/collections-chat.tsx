@@ -46,9 +46,12 @@ export function CollectionsChat() {
             </SidebarGroupLabel>
             <SidebarMenu className="ml-[-7px]">
                 {chats.map((item) => {
+                    const chat = item.messages?.[0]?.content.slice(0, 60);
+
                     const isActive = pathname.startsWith(
                         `${PAGE_CHAT}/${item.id}`
                     );
+
                     return (
                         <SidebarMenuItem key={`chat-${item.id}`}>
                             <SidebarMenuButton
@@ -59,14 +62,13 @@ export function CollectionsChat() {
                                 <Link href={`${PAGE_CHAT}/${item.id}`}>
                                     <Tooltip
                                         content={
-                                            item.messages?.[0]?.content ||
+                                            `${chat}...` ||
                                             "Sem mensagens disponíveis"
                                         }
                                         className="ml-6 mb-3 text-xs rounded-[.3rem]"
                                     >
                                         <span className="text-xs whitespace-nowrap overflow-hidden">
-                                            {item.messages?.[0]?.content ||
-                                                "Sem mensagens"}
+                                            {`${chat}...` || "Sem mensagens"}
                                         </span>
                                     </Tooltip>
                                 </Link>

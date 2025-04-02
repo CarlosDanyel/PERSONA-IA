@@ -5,11 +5,13 @@ type ButtonAnimateProps = {
     name: string;
     icon?: "arrow";
     className?: string;
+    status?: "Prod" | "Dev";
 };
 export const ButtonAnimate = ({
     name,
     icon,
     className,
+    status = "Prod",
 }: ButtonAnimateProps) => {
     return (
         <div className={cn("flex flex-col gap-1", className)}>
@@ -19,8 +21,9 @@ export const ButtonAnimate = ({
             </div>
             <div
                 className={cn(
-                    "w-[130px] h-[1px] bg-white group-hover:w-full transition-all duration-700",
-                    icon && "w-[140px]"
+                    "w-[130px] h-[1px] bg-white  transition-all duration-700",
+                    icon && "w-[140px]",
+                    status === "Prod" && "group-hover:w-full"
                 )}
             ></div>
         </div>

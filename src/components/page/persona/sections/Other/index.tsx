@@ -47,7 +47,7 @@ export const Others = () => {
                             <Medias session="other" />
                             <div
                                 className={cn(
-                                    "w-full  border rounded-xl bg-sidebar flex flex-col gap-2",
+                                    "w-full  border rounded-xl bg-sidebar flex flex-col gap-2 px-4",
                                     "justify-center items-center"
                                 )}
                             >
