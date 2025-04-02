@@ -541,6 +541,7 @@ const sidebarMenuButtonVariants = cva(
             },
             size: {
                 default: "h-8 text-sm",
+                md: "!w-6 !h-6 bg-red-500",
                 sm: "h-7 text-xs",
                 lg: "h-12 text-sm group-data-[collapsible=icon]:!p-0",
             },
@@ -603,6 +604,7 @@ const SidebarMenuButton = React.forwardRef<
             <Tooltip>
                 <TooltipTrigger asChild>{button}</TooltipTrigger>
                 <TooltipContent
+                    className="rounded-[.3rem]"
                     side="right"
                     align="center"
                     hidden={state !== "collapsed" || isMobile}

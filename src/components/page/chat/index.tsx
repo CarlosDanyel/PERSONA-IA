@@ -1,4 +1,4 @@
-import { useChat } from "@/hook/useChat";
+import { useChat } from "@/hooks/useChat";
 import { AIMessage } from "./messages/ai-message";
 import { UserMessage } from "./messages/user-message";
 import { useParams } from "next/navigation";

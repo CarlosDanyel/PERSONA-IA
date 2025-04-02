@@ -8,19 +8,20 @@ import {
     TooltipTrigger,
 } from "./primitive";
 import { ReactNode } from "react";
+import { TooltipContentProps } from "@radix-ui/react-tooltip";
 
 type TooltipProps = {
     children: ReactNode;
     content: string | number | ReactNode;
     className?: string;
-    timeOpen?: number;
-    timeClose?: number;
+    side?: TooltipContentProps["side"];
 };
 
 export const Tooltip = ({
     children,
     content,
     className,
+    side,
     ...props
 }: TooltipProps) => {
     return (
@@ -31,9 +32,10 @@ export const Tooltip = ({
                 </TooltipTrigger>
                 <TooltipContent
                     className={cn(
-                        "bg-background text-sm border border-muted text-foreground",
+                        "bg-background text-sm border border-muted text-foreground rounded-[.3rem]",
                         className
                     )}
+                    side={side}
                 >
                     <p>{content}</p>
                 </TooltipContent>

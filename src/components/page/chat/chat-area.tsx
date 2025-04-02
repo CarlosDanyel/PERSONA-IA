@@ -11,7 +11,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import { PAGE_CHAT } from "@/constants/page";
 
 import { Button } from "@/components/ui/button";
-import { useChat } from "@/hook/useChat";
+import { useChat } from "@/hooks/useChat";
 
 export const ChatArea = () => {
     const [activeButton, setActiveButton] = useState<string | null | boolean>(

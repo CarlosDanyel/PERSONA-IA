@@ -6,7 +6,7 @@ import { TextTitle } from "../../../../common/Text-title";
 import { cn } from "@/lib/utils";
 import { TechsAndServices } from "./other-find";
 import { Medias } from "../../sidebar/social-medias/medias";
-import { useClock } from "@/hook/useClock";
+import { useClock } from "@/hooks/useClock";
 import Link from "next/link";
 import { SECTION_OTHER } from "@/constants/sections";
 

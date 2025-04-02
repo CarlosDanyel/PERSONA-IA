@@ -19,7 +19,7 @@ export const AppSidebar = ({
             className="border-[0.5px] scrollbar-hide"
         >
             <div className=" pb-5 h-full w-full flex flex-col">
-                <SidebarContent className="px-4 mt-8">
+                <SidebarContent className="px-4 mt-8 overflow-hidden">
                     <AddNewChat />
                     <Separator className="my-2" />
                     <CollectionsChat />
@@ -27,7 +27,7 @@ export const AppSidebar = ({
                     <Separator className="my-2" />
                     <SocialMedia />
                 </SidebarContent>
-                <FooterSidebar mode="desktop" />
+                <FooterSidebar />
             </div>
         </Sidebar>
     );

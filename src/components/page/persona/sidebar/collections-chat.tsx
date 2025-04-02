@@ -18,13 +18,14 @@ import {
     useSidebar,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { Tooltip } from "@/components/ui/tooltip";
-import { useChat } from "@/hook/useChat";
+import { useChat } from "@/hooks/useChat";
 import { PAGE_CHAT } from "@/constants/page";
 import { useParams, usePathname, useRouter } from "next/navigation";
+import { ChatCenteredText } from "phosphor-react";
+import { cn } from "@/lib/utils";
 
 export function CollectionsChat() {
-    const { isMobile } = useSidebar();
+    const { open, isMobile } = useSidebar();
     const { chats } = useChat();
     const router = useRouter();
     const pathname = usePathname();
@@ -40,37 +41,45 @@ export function CollectionsChat() {
     };
 
     return (
-        <SidebarGroup className="group-data-[collapsible=icon]:hidden pr-0">
-            <SidebarGroupLabel className="text-sm pl-0 font-normal">
+        <SidebarGroup className="pr-0 pl-0">
+            <SidebarGroupLabel className="text-sm pl-0 font-normal whitespace-nowrap">
                 Acesse o chat
             </SidebarGroupLabel>
-            <SidebarMenu className="ml-[-7px]">
+            <SidebarMenu className={cn("ml-[-0px]", !open && "ml-[-0px]")}>
                 {chats.map((item) => {
-                    const chat = item.messages?.[0]?.content.slice(0, 60);
+                    const chat = item.messages?.[0]?.content.slice(0, 30);
 
                     const isActive = pathname.startsWith(
                         `${PAGE_CHAT}/${item.id}`
                     );
 
                     return (
-                        <SidebarMenuItem key={`chat-${item.id}`}>
+                        <SidebarMenuItem
+                            key={`chat-${item.id}`}
+                            className="w-full flex items-center justify-center"
+                        >
                             <SidebarMenuButton
                                 asChild
                                 className="rounded-[.3rem] "
                                 isActive={isActive}
+                                tooltip={`${chat}`}
                             >
-                                <Link href={`${PAGE_CHAT}/${item.id}`}>
-                                    <Tooltip
-                                        content={
-                                            `${chat}...` ||
-                                            "Sem mensagens disponíveis"
-                                        }
-                                        className="ml-6 mb-3 text-xs rounded-[.3rem]"
+                                <Link
+                                    href={`${PAGE_CHAT}/${item.id}`}
+                                    className="w-full"
+                                >
+                                    <span
+                                        className={cn(
+                                            "text-xs whitespace-nowrap",
+                                            !open && "text-center w-full"
+                                        )}
                                     >
-                                        <span className="text-xs whitespace-nowrap overflow-hidden">
-                                            {`${chat}...` || "Sem mensagens"}
-                                        </span>
-                                    </Tooltip>
+                                        {!open ? (
+                                            <ChatCenteredText size={18} />
+                                        ) : (
+                                            `${chat}` || "Sem mensagens"
+                                        )}
+                                    </span>
                                 </Link>
                             </SidebarMenuButton>
                             <DropdownMenu>
