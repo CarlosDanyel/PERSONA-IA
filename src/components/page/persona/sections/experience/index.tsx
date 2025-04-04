@@ -3,6 +3,7 @@ import { TextTitle } from "../../../../common/Text-title";
 import { ButtonAnimate } from "../../../../ui/button-animate";
 import Link from "next/link";
 import { SECTION_EXPERIENCE } from "@/constants/sections";
+import { cn } from "@/lib/utils";
 
 export const Experience = () => {
     return (
@@ -23,9 +24,18 @@ export const Experience = () => {
                             profissional.
                         </p>
                     </div>
-                    <ButtonAnimate name="Pergunte Agora" icon="arrow" />
+                    <ButtonAnimate
+                        className="mt-9"
+                        name="Pergunte Agora"
+                        icon="arrow"
+                    />
                 </div>
-                <div className="border rounded-[.5rem] w-full h-[260px] overflow-hidden flex items-center justify-center">
+                <div
+                    className={cn(
+                        "border rounded-[.5rem] w-full h-[260px] overflow-hidden flex items-center justify-center",
+                        "max-[908px]:hidden"
+                    )}
+                >
                     <Image
                         src={"/assets/image-6.png"}
                         alt=""

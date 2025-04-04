@@ -10,7 +10,7 @@ export const AddNewChat = () => {
     const chatButton = (
         <Link href={`${PAGE_CHAT}/new`} className="w-full">
             <Button
-                className="rounded-2xl flex w-full outline-none"
+                className="rounded-2xl flex w-full outline-none select-none"
                 size="sm"
                 variant="outline"
             >

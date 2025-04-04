@@ -97,7 +97,7 @@ export const ChatArea = () => {
                 <Button
                     variant={"outline"}
                     size={"icon"}
-                    className="rounded-full"
+                    className="rounded-full px-3"
                     disabled={!activeButton}
                     onClick={() => setActiveButton(!activeButton)}
                 >

@@ -5,7 +5,7 @@ type AIMessageProps = {
 };
 export const AIMessage = ({ text }: AIMessageProps) => {
     return (
-        <div className="max-w-[900px] my-2 text-left flex items-center gap-5">
+        <div className="max-w-[900px] leading-[26px] my-9 text-left flex items-center gap-5">
             <Avatar>
                 <AvatarImage src="" />
                 <AvatarFallback>PS</AvatarFallback>

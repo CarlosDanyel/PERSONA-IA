@@ -19,7 +19,12 @@ export const SECTION_HOME = "Home";
 export const SECTION_PROJECT = "Project";
 export const SECTION_EXPERIENCE = "Experience";
 export const SECTION_TECHNOLOGIES = "Technology";
-export const SECTION_OTHER = "Other";
+export const SECTION_TECH = "Tech";
+export const SECTION_TOOLS = "Tools";
+export const SECTION_NETWORKING = "Networking";
+export const SECTION_CONTACT = "Contact";
+
+export const WHATSAPP_MEETING = "https://bit.ly/3Y9gARO";
 
 export const linksPageDirectTo: SidebarLinkProps = [
     {
@@ -40,21 +45,21 @@ export const linksPageDirectTo: SidebarLinkProps = [
     {
         label: "Tecnologias",
         icon: Cpu,
-        to: SECTION_OTHER,
+        to: SECTION_TOOLS,
     },
     {
         label: "Ferrametas",
-        to: SECTION_OTHER,
+        to: SECTION_TOOLS,
         icon: Hammer,
     },
     {
         label: "Redes Sociais",
-        to: SECTION_OTHER,
+        to: SECTION_NETWORKING,
         icon: Share2,
     },
     {
         label: "Contato",
-        to: SECTION_OTHER,
+        to: SECTION_CONTACT,
         icon: CircleUser,
     },
 ];

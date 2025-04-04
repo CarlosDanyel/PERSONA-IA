@@ -3,6 +3,7 @@ import { AIMessage } from "./messages/ai-message";
 import { UserMessage } from "./messages/user-message";
 import { useParams } from "next/navigation";
 import { Suspense } from "react";
+import { cn } from "@/lib/utils";
 
 export const Chat = () => {
     const params = useParams();
@@ -16,9 +17,13 @@ export const Chat = () => {
     }
 
     return (
-        <section className="w-full h-full rounded mt-5 flex py-10">
+        <section className={cn("w-full h-full rounded mt-5 flex py-10")}>
             <div className="bg-sidebar w-1/12 h-full" />
-            <div className="w-full h-full bg-black px-20  scrollbar-hide overflow-y-scroll">
+            <div
+                className={cn(
+                    "w-full h-full max-w-[900px] px-5 mx-auto bg-black  scrollbar-hide overflow-y-scroll"
+                )}
+            >
                 {chat.map((item) => (
                     <Suspense key={item.id}>
                         <UserMessage text={item.content} />
@@ -26,7 +31,7 @@ export const Chat = () => {
                     </Suspense>
                 ))}
             </div>
-            <div className="bg-sidebar  w-1/12 h-full" />
+            <div className="bg-sidebar w-1/12 h-full " />
         </section>
     );
 };

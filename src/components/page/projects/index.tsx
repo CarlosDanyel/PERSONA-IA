@@ -17,14 +17,24 @@ export const Projects = () => {
         <section className="flex flex-col mt-14 overflow-y-auto scrollbar-hide mb-10">
             <BackPage />
             <div>
-                <h1 className="mt-6 font-title text-[35px] font-medium normal-case leading-[36px] tracking-[-1px] text-start text-glow">
+                <h1
+                    className={cn(
+                        "mt-6 font-title text-[35px] font-medium normal-case leading-[46px] tracking-[-1px] text-start text-glow",
+                        "max-lg:text-[29px]"
+                    )}
+                >
                     {data?.subTitle}
                 </h1>
                 <p className="font-title mt-5 text-base text-[#7E7E7E] font-medium text-start">
                     {data?.description}
                 </p>
             </div>
-            <div className="flex flex-wrap mt-10 gap-4 justify-between">
+            <div
+                className={cn(
+                    "flex flex-wrap mt-10 gap-4 justify-between",
+                    "max-sm:flex-col"
+                )}
+            >
                 {data?.images?.map((item) => {
                     return (
                         <Link

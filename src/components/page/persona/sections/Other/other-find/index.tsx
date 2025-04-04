@@ -5,6 +5,8 @@ import { useState } from "react";
 import { TechToolsData } from "@/constants/techs-tools";
 import { ButtonTechTool } from "./button-tech";
 import { CustomSwiper } from "./casousel-tech";
+import { cn } from "@/lib/utils";
+import { Cloudy, Cpu, Hammer, Landmark } from "lucide-react";
 
 export const TechsAndServices = () => {
     const [open, setOpen] = useState<
@@ -30,32 +32,41 @@ export const TechsAndServices = () => {
     }[open || "techs"];
 
     return (
-        <div className="w-full h-fit p-6  overflow-hidden">
+        <div className="w-full h-fit p-6 overflow-hidden">
             <div className="flex flex-col gap-12">
-                <div className="flex justify-between">
+                <div
+                    className={cn(
+                        "flex justify-between flex-wrap gap-3",
+                        "max-[1506px]:flex-col"
+                    )}
+                >
                     <h4 className="font-title text-[22px] font-medium normal-case tracking-[-1px]">
                         {sectionTitle}
                     </h4>
-                    <div className="flex border rounded-[1rem]">
+                    <div className="flex border rounded-[1rem] w-fit">
                         <ButtonTechTool
                             open={open === "techs"}
                             setOpen={() => toggleButton("techs")}
                             title="Tecnologias"
+                            icon={Cpu}
                         />
                         <ButtonTechTool
                             open={open === "bank"}
                             setOpen={() => toggleButton("bank")}
                             title="Banco de Dados"
+                            icon={Landmark}
                         />
                         <ButtonTechTool
                             open={open === "cloud"}
                             setOpen={() => toggleButton("cloud")}
                             title="Cloud"
+                            icon={Cloudy}
                         />
                         <ButtonTechTool
                             open={open === "tools"}
                             setOpen={() => toggleButton("tools")}
                             title="Ferramentas"
+                            icon={Hammer}
                         />
                     </div>
                 </div>

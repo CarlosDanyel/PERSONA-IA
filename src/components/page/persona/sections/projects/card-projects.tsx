@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonAnimate } from "../../../../ui/button-animate";
 import { CirclePulse } from "./circle-pulse";
+import { cn } from "@/lib/utils";
 
 type LogoType = React.FC<React.SVGProps<SVGSVGElement>>;
 
@@ -38,7 +39,7 @@ const Project = ({
             {Logo && (
                 <Logo className="h-12 w-12 absolute top-4 right-4 rounded-[.3rem]" />
             )}
-            <div className="w-full max-w-[554px]">
+            <div className={cn("w-full max-w-[554px]", "max-lg:hidden")}>
                 <Image
                     src={project.cardImage}
                     alt={project.subTitle || "Project Image"}
@@ -62,7 +63,7 @@ const Project = ({
                         <span className="text-white">✦</span>{" "}
                         {project.details.launch}
                     </span>
-                    <b className="text-xl font-semibold line-clamp-2">
+                    <b className="text-xl font-semibold line-clamp-1">
                         {project.subTitle}
                     </b>
                     <p className="text-base text-muted-foreground font-light max-w-[550px] line-clamp-2">

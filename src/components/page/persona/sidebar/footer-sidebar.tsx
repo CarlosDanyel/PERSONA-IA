@@ -18,6 +18,10 @@ import * as React from "react";
 import { CheckCircle2, ChevronsUpDown, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import Link from "next/link";
+import { WHATSAPP_MEETING } from "@/constants/sections";
+import { CalendarBlank } from "phosphor-react";
+
 const MobileSidebarFooter = ({
     isMobile,
     open,
@@ -106,6 +110,15 @@ const MobileSidebarFooter = ({
                                     <CheckCircle2 color="#2BB559" />
                                     Founder Persona IA
                                 </DropdownMenuItem>
+                            </DropdownMenuGroup>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuGroup>
+                                <Link href={WHATSAPP_MEETING} target="_blank">
+                                    <DropdownMenuItem className="cursor-pointer">
+                                        <CalendarBlank color="#ffffff" />
+                                        Agende uma reunião
+                                    </DropdownMenuItem>
+                                </Link>
                             </DropdownMenuGroup>
                             <DropdownMenuSeparator />
                         </DropdownMenuContent>

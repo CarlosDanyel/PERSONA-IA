@@ -6,19 +6,28 @@ import { TextTitle } from "../../../../common/Text-title";
 import { cn } from "@/lib/utils";
 import { TechsAndServices } from "./other-find";
 import { Medias } from "../../sidebar/social-medias/medias";
-import { useClock } from "@/hooks/useClock";
+
 import Link from "next/link";
-import { SECTION_OTHER } from "@/constants/sections";
+import {
+    SECTION_CONTACT,
+    SECTION_NETWORKING,
+    SECTION_TOOLS,
+    WHATSAPP_MEETING,
+} from "@/constants/sections";
+import { useClock } from "@/hooks/useClock";
 
 export const Others = () => {
     const time = useClock();
 
     return (
-        <section id={SECTION_OTHER} className="w-full mt-20 gap-2 flex">
+        <section id={SECTION_CONTACT} className="w-full mt-20 gap-2 flex">
             <div className=" w-full flex flex-col gap-6">
                 <TextTitle text="Tecnologias, Ferramentas e Redes" />
-                <div className=" flex gap-5 flex-wrap">
-                    <div className="h-fit flex-1 basis-72 p-7 border rounded-xl  flex flex-col gap-3">
+                <div
+                    id={SECTION_CONTACT}
+                    className={cn("flex gap-5", "max-[1075px]:flex-col")}
+                >
+                    <div className=" flex-1 basis-72 p-7 border rounded-xl  flex flex-col gap-3">
                         <span className="px-4 py-2 border rounded-3xl flex items-center gap-2 w-fit text-sm">
                             <CirclePulse color="white" />
                             Entre em Contato
@@ -28,7 +37,7 @@ export const Others = () => {
                                 Agende uma <br /> Reunião ✦
                             </p>
                             <Link
-                                href={"https://bit.ly/3Y9gARO"}
+                                href={WHATSAPP_MEETING}
                                 target="_blank"
                                 className={cn(
                                     "w-full bg-transparent font-title text-lg font-medium normal-case transition-all group-hover:border-white duration-700",
@@ -40,18 +49,37 @@ export const Others = () => {
                         </div>
                     </div>
                     <div className="flex-1 basis-[65%] overflow-hidden">
-                        <div className="w-full h-fit border rounded-xl overflow-hidden">
+                        <div
+                            id={SECTION_TOOLS}
+                            className="w-full h-fit border rounded-xl overflow-hidden"
+                        >
                             <TechsAndServices />
                         </div>
-                        <div className="flex gap-4 w-full  mt-12">
-                            <Medias session="other" />
+                        <div
+                            className={cn(
+                                "flex gap-4 w-full mt-12",
+                                "max-sm:flex-col"
+                            )}
+                        >
+                            <div
+                                id={SECTION_NETWORKING}
+                                className="flex gap-3 w-full"
+                            >
+                                <Medias session="other" />
+                            </div>
                             <div
                                 className={cn(
-                                    "w-full  border rounded-xl bg-sidebar flex flex-col gap-2 px-4",
-                                    "justify-center items-center"
+                                    "w-full border rounded-xl bg-sidebar flex flex-col gap-2 px-4",
+                                    "justify-center items-center",
+                                    "max-sm:py-4"
                                 )}
                             >
-                                <span className="font-title text-3xl font-medium normal-case tracking-[-1px]">
+                                <span
+                                    className={cn(
+                                        "font-title text-3xl font-medium normal-case tracking-[-1px] whitespace-nowrap",
+                                        "max-xl:text-xl"
+                                    )}
+                                >
                                     {time} H
                                 </span>
                                 <span className="font-light text-sm text-zinc-300">

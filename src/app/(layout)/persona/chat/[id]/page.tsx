@@ -9,8 +9,11 @@ export default function ChatID() {
             title="Em que posso te ajudar?"
             description={
                 <>
-                    
-                    <span className="text-white">Carlos Danyel</span> 
+                    Sou a <span className="text-white"> Persona AI </span>
+                    inteligência artificial do
+                    <span className="text-white"> Carlos Danyel, </span>
+                    sua representação digital. Estou aqui para te auxiliar e
+                    otimizar sua experiência.
                 </>
             }
         >
