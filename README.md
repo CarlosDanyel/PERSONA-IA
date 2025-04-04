@@ -37,23 +37,31 @@ Essa abordagem faz com que a **Persona AI seja verdadeiramente sua – adaptada 
 
 A plataforma está sendo desenvolvida em **duas fases**:
 
-### **🛠️ Primeira Fase (Atualmente em Desenvolvimento)**
+### **🛠️ Primeira Fase (Fase concluida)**
 
 Foco na estruturação dos agentes e integração inicial da plataforma:
 
--   **N8N** – Automação de fluxos de trabalho.
--   **Python** – Inteligência artificial e processamento de linguagem natural.
+-   **N8N** – Criação de fluxogramas e Agentes iA.
+-   **Python** – logica de programação.
+-   **Ollama** – LLM
 -   **PostgreSQL** – Banco de dados relacional.
 -   **Supabase** – Backend as a Service (BaaS).
 -   **Redis** – Cache otimizado para respostas rápidas.
 -   **RAG** – Recuperação aumentada por geração, melhorando respostas com contexto externo.
 
-### **🚀 Segunda Fase (Planejada)**
+### **🚀 Segunda Fase (Em Desenvolvimento)**
 
 Construção de um backend robusto para expandir funcionalidades e escalabilidade:
 
+-   **Python**
+-   **LangChain**
+-   **Conceitos de Rag**
+-   **Ollama**
+-   **Neon**
+-   **Redis**
 -   **Java**
 -   **Spring Boot**
+-   **Aws**
 
 ---
 
