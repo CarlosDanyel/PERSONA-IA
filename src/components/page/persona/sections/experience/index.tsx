@@ -4,6 +4,7 @@ import { ButtonAnimate } from "../../../../ui/button-animate";
 import Link from "next/link";
 import { SECTION_EXPERIENCE } from "@/constants/sections";
 import { cn } from "@/lib/utils";
+import { PAGE_CHAT } from "@/constants/page";
 
 export const Experience = () => {
     return (
@@ -11,7 +12,7 @@ export const Experience = () => {
             <TextTitle text=" Descubra as Experiências do Carlos" />
 
             <Link
-                href={"/persona/chat/new"}
+                href={`${PAGE_CHAT}/new`}
                 className="group border rounded-xl p-5 flex gap-5 w-full cursor-pointer"
             >
                 <div className="flex flex-col justify-between w-fit py-[25px]">

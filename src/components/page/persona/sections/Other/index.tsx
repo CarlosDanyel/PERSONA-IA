@@ -27,12 +27,12 @@ export const Others = () => {
                     id={SECTION_CONTACT}
                     className={cn("flex gap-5", "max-[1075px]:flex-col")}
                 >
-                    <div className=" flex-1 basis-72 p-7 border rounded-xl  flex flex-col gap-3">
+                    <div className="group flex-1 basis-72 p-7 border rounded-xl  flex flex-col gap-3 pointer">
                         <span className="px-4 py-2 border rounded-3xl flex items-center gap-2 w-fit text-sm">
                             <CirclePulse color="white" />
                             Entre em Contato
                         </span>
-                        <div className="group h-full flex flex-col justify-between cursor-pointer">
+                        <div className=" h-full flex flex-col justify-between cursor-">
                             <p className="font-title text-[28px] font-medium normal-case tracking-[-1px]">
                                 Agende uma <br /> Reunião ✦
                             </p>

@@ -36,7 +36,7 @@ const ContainerSidebarLink = ({ displayMode = "visible" }: DisplayMode) => (
                             </Tooltip>
                         </NavLink>
                     ) : (
-                        <Link href={"/persona"}>
+                        <Link href={PAGE_PERSONA}>
                             <Tooltip
                                 key={`${item.label}-${index}`}
                                 content={item.label}
@@ -58,7 +58,7 @@ export const SidebarLink = () => {
 
     return (
         <ContainerSidebarLink
-            displayMode={pathname.includes(PAGE_PERSONA) ? "visible" : "hidden"}
+            displayMode={pathname === PAGE_PERSONA ? "visible" : "hidden"}
         />
     );
 };
