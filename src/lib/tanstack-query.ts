@@ -30,7 +30,9 @@ export const useTanStackQuery = () => {
                     if (mutation.options.onError) return;
 
                     const errorMessage = handleErrorMessage(error);
-                    toast.error(errorMessage);
+                    toast.error(errorMessage, {
+                      style: { marginRight: "50px" },
+                    });
                 },
             }),
         })
