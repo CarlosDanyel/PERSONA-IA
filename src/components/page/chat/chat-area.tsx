@@ -8,11 +8,13 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useParams, usePathname, useRouter } from "next/navigation";
-import { PAGE_CHAT } from "@/constants/page";
+import { PAGE_CHAT, PAGE_NEW_CHAT } from "@/constants/page";
 
 import { Button } from "@/components/ui/button";
 import { useChat } from "@/hooks/useChat";
-import { ApiServices } from "@/services/api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { ApiServices, SendMessageProps } from "@/services/api";
+import { queyKeys } from "@/constants/querys-keys";
 
 export const ChatArea = () => {
   const [activeButton, setActiveButton] = useState<string | null | boolean>(
@@ -22,13 +24,23 @@ export const ChatArea = () => {
   const pathname = usePathname();
   const params = useParams();
 
-  const { addMessage, createChat } = useChat();
+  const { addMessage, createChat, isAwaitingResponse } = useChat();
 
   const chatId = params.id as string;
 
   const { register, handleSubmit, reset } = useFormContext<{
     message: string;
   }>();
+
+  const queryClient = useQueryClient();
+
+  const { mutate: handleMutationSend, isPending } = useMutation({
+    mutationFn: ({ chatInput, chatId }: SendMessageProps) =>
+      ApiServices.sendMessage({ chatInput, chatId }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queyKeys.message });
+    },
+  });
 
   const onsubmit = async (data: { message: string }) => {
     if (!data.message.trim()) {
@@ -39,14 +51,29 @@ export const ChatArea = () => {
     }
 
     if (!pathname.includes(PAGE_CHAT)) {
-      const newChatId = createChat(data.message);
-      router.push(`${PAGE_CHAT}/${newChatId}`);
+      const chatId = createChat(data.message);
+
+      router.push(`${PAGE_CHAT}/${chatId}`);
+      console.log("newChatId", chatId);
+      handleMutationSend({ chatInput: data.message, chatId });
+
+      return;
+    }
+
+    if (pathname.includes(PAGE_NEW_CHAT)) {
+      const chatId = createChat(data.message);
+
+      router.push(`${PAGE_CHAT}/${chatId}`);
+      console.log("newChatId", chatId);
+      handleMutationSend({ chatInput: data.message, chatId });
+
       return;
     }
 
     if (pathname.includes(PAGE_CHAT)) {
       if (chatId) {
         addMessage(chatId, data.message);
+        handleMutationSend({ chatInput: data.message, chatId });
       } else {
         toast.error("Chat não encontrado.", {
           style: { marginRight: "50px" },
@@ -61,7 +88,10 @@ export const ChatArea = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSubmit(onsubmit)();
+
+      if (!isAwaitingResponse) {
+        handleSubmit(onsubmit)();
+      }
     }
   };
 
@@ -84,8 +114,9 @@ export const ChatArea = () => {
           )}
         />
         <button
+          disabled={isAwaitingResponse}
           type="submit"
-          className="h-[30px] mt-auto rounded-xl p-2 bg-foreground text-muted flex justify-center items-center "
+          className="h-[30px] mt-auto rounded-xl p-2 bg-foreground text-muted flex justify-center items-center disabled:opacity-50"
         >
           <ArrowUpLeft size={20} />
         </button>
@@ -99,7 +130,7 @@ export const ChatArea = () => {
           variant={"outline"}
           size={"icon"}
           className="rounded-full px-3"
-          disabled={!activeButton}
+          disabled={isPending}
           onClick={() => setActiveButton(!activeButton)}
         >
           {!activeButton ? <PlusCircle /> : <CircleX></CircleX>}

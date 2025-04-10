@@ -4,7 +4,7 @@ import axios from "axios";
 const AGENT_SERVER = process.env.N8N_WEBHOOK_URL!;
 
 export async function POST(request: Request) {
-  const { chatId, action, chatInput } = await request.json();
+  const { chatId, chatInput } = await request.json();
 
   if(!chatId || !chatInput) {
      return Response.json(
@@ -19,7 +19,6 @@ export async function POST(request: Request) {
   try {
     const response = await axios.post(AGENT_SERVER, {
       chatId,
-      action,
       chatInput,
     });
 

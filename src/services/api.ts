@@ -1,8 +1,12 @@
 import { api } from "@/lib/axios";
 
-type SendMessageProps = {
+export type SendMessageProps = {
   chatId: string;
-  action: string;
+  chatInput: string;
+};
+
+export type ResponseMessageProps = {
+  output: string;
   chatInput: string;
 };
 
@@ -12,17 +16,23 @@ const saveUser = async (name: string, email: string) => {
     return data;
 };
 
-const sendMessage = async ({action, chatId, chatInput}: SendMessageProps) => {
-  const { data } = await api.post("/agent/send-n8n", {
+const sendMessage = async ({ chatId, chatInput}: SendMessageProps) => {
+  const { data } = await api.post("/agent/message", {
     chatId,
-    action,
     chatInput,
   });
 
   return data;
 };
 
+
+const responseMessage = async () => {
+  const res = await api.get("/agent/response")
+  return res.data;
+};
+
 export const ApiServices = {
   saveUser,
   sendMessage,
+  responseMessage,
 };
