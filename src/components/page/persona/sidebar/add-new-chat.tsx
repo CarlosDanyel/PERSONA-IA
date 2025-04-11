@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { SidebarGroup, useSidebar } from "@/components/ui/sidebar";
 import { Tooltip } from "@/components/ui/tooltip";
-import { PAGE_CHAT } from "@/constants/page";
+import { PAGE_NEW_CHAT } from "@/constants/page";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 
 export const AddNewChat = () => {
     const { open } = useSidebar();
     const chatButton = (
-        <Link href={`${PAGE_CHAT}/new`} className="w-full">
+        <Link href={`${PAGE_NEW_CHAT}`} className="w-full">
             <Button
                 className="rounded-2xl flex w-full outline-none select-none"
                 size="sm"

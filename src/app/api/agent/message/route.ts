@@ -4,27 +4,27 @@ import axios from "axios";
 const AGENT_SERVER = process.env.N8N_WEBHOOK_URL!;
 
 export async function POST(request: Request) {
-  const { chatId, chatInput } = await request.json();
+    const { chatId, chatInput } = await request.json();
 
-  if(!chatId || !chatInput) {
-     return Response.json(
-       {
-         message: "Messaegem Obrigatoria",
-         status: 400,
-       },
-       { status: 400 }
-     );
-  }
+    if (!chatId || !chatInput) {
+        return Response.json(
+            {
+                message: "Messaegem Obrigatoria",
+                status: 400,
+            },
+            { status: 400 }
+        );
+    }
 
-  try {
-    const response = await axios.post(AGENT_SERVER, {
-      chatId,
-      chatInput,
-    });
+    try {
+        const response = await axios.post(AGENT_SERVER, {
+            chatId,
+            chatInput,
+        });
 
-    return NextResponse.json(response.data);
-  } catch (error) {
-    console.error("Erro ao chamar n8n:", error);
-    return NextResponse.json({ error: "Erro interno" }, { status: 500 });
-  }
+        return NextResponse.json(response.data);
+    } catch (error) {
+        console.error("Erro ao chamar n8n:", error);
+        return NextResponse.json({ error: "Erro interno" }, { status: 500 });
+    }
 }
