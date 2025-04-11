@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { CirclePulse } from "../projects/circle-pulse";
 import { TextTitle } from "../../../../common/Text-title";
 import { cn } from "@/lib/utils";
-import { TechsAndServices } from "./other-find";
 import { Medias } from "../../sidebar/social-medias/medias";
 
 import Link from "next/link";
@@ -15,6 +14,7 @@ import {
     WHATSAPP_MEETING,
 } from "@/constants/sections";
 import { useClock } from "@/hooks/useClock";
+import { TechsAndServices } from "./other-find";
 
 export const Others = () => {
     const time = useClock();

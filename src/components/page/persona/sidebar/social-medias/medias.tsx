@@ -14,7 +14,8 @@ export const Medias = ({ session = "medias" }: MediasSectionProps) => (
                 session === "other" &&
                 cn(
                     "w-full py-12 px-4 border rounded-xl cursor-pointer duration-700 hover:bg-sidebar hover:border-white",
-                    "transition-all text-sod text-muted-foreground hover:text-white flex items-center justify-center"
+                    "transition-all text-sod text-muted-foreground hover:text-white flex items-center justify-center",
+                    "max-xl:py-9"
                 );
 
             const Content = (
