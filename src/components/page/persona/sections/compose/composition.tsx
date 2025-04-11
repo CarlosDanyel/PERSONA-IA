@@ -8,7 +8,7 @@ import { CustomSwiper } from "./casousel-tech";
 import { cn } from "@/lib/utils";
 import { Cloudy, Cpu, Hammer, Landmark } from "lucide-react";
 
-export const TechsAndServices = () => {
+export const Composition = () => {
     const [open, setOpen] = useState<
         "techs" | "tools" | "bank" | "cloud" | null
     >("techs");

@@ -14,7 +14,7 @@ import {
     WHATSAPP_MEETING,
 } from "@/constants/sections";
 import { useClock } from "@/hooks/useClock";
-import { TechsAndServices } from "./other-find";
+import { Composition } from "./composition";
 
 export const Others = () => {
     const time = useClock();
@@ -28,7 +28,7 @@ export const Others = () => {
                     className={cn("flex gap-5", "max-[1075px]:flex-col")}
                 >
                     <div className="group flex-1 basis-72 p-7 border rounded-xl  flex flex-col gap-3 pointer">
-                        <span className="px-4 py-2 border rounded-3xl flex items-center gap-2 w-fit text-sm">
+                        <span className="px-4 py-2 border rounded-3xl flex items-center gap-2 w-fit text-sm ">
                             <CirclePulse color="white" />
                             Entre em Contato
                         </span>
@@ -53,7 +53,7 @@ export const Others = () => {
                             id={SECTION_TOOLS}
                             className="w-full h-fit border rounded-xl overflow-hidden"
                         >
-                            <TechsAndServices />
+                            <Composition />
                         </div>
                         <div
                             className={cn(
