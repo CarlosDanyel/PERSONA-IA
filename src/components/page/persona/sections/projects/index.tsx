@@ -1,3 +1,5 @@
+"use client";
+
 import { projects } from "@/constants/projects";
 import { CardProjects } from "./card-projects";
 import { TextTitle } from "../../../../common/Text-title";

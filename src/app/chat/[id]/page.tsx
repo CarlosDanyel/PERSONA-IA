@@ -1,9 +1,9 @@
 import { Chat } from "@/components/page/chat";
-import { Persona } from "@/components/page/persona";
+import { ContainerPage } from "@/components/page/persona/containerPage";
 
 export default async function ChatID() {
     return (
-        <Persona
+        <ContainerPage
             title="Em que posso te ajudar?"
             description={
                 <>
@@ -16,6 +16,6 @@ export default async function ChatID() {
             }
         >
             <Chat />
-        </Persona>
+        </ContainerPage>
     );
 }

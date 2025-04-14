@@ -28,7 +28,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "next.config.mjs",
-        "svgr.config.js"
+        "svgr.config.js",
+        "src/components/page/persona/m"
     ],
     "exclude": ["node_modules"]
 }

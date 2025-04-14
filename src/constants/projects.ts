@@ -1,4 +1,5 @@
 import LogoModifyca from "@/assets/modifycaLogo.svg";
+import LogoPersona from "@/assets/logoPersona.svg";
 
 export const projects: Project[] = [
     {
@@ -45,13 +46,13 @@ export const projects: Project[] = [
         description:
             "A Persona AI é uma representação digital inteligente que eleva sua apresentação profissional a outro nível. Projetada para ser o primeiro ponto de contato com quem deseja conhecer seu trabalho, essa assistente virtual combina tecnologia e personalização para destacar suas habilidades, projetos e conquistas de forma clara e envolvente.",
         subDescription:
-            "A Modifyca é a plataforma definitiva para quem deseja um currículo profissional, moderno e otimizado para o mercado de trabalho.",
+            "Sua representação digital inteligente. Personalizável, interativa e feita para representar você com precisão e impacto.",
         details: {
             launch: "Jan, 28, 2025",
             type: "AGENT AI",
             status: "Prod",
             targets: "Lançada e desenvolvida em tempo record - ( 2 meses )",
-            icon: LogoModifyca,
+            icon: LogoPersona,
             tech: [
                 {
                     icon: "Javascript",
@@ -62,11 +63,7 @@ export const projects: Project[] = [
             repository: "https://github.com/CarlosDanyel/Modifyca",
         },
         cardImage: "/assets/image-5.png",
-        images: [
-            "/assets/modifyca-4-remover.png",
-            "/assets/modifyca-5-remover.png",
-            "/assets/modifyca-6-remover.png",
-        ],
+        images: ["/assets/persona-1.png", "/assets/persona-2.png"],
     },
     {
         id: 3,
