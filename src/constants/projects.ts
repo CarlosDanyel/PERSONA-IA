@@ -51,7 +51,7 @@ export const projects: Project[] = [
             launch: "Jan, 28, 2025",
             type: "AGENT AI",
             status: "Prod",
-            targets: "Lançada e desenvolvida em tempo record - ( 2 meses )",
+            targets: "Lançada e desenvolvida em tempo record - ( 3 meses )",
             icon: LogoPersona,
             tech: [
                 {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
                 },
             ],
 
-            repository: "https://github.com/CarlosDanyel/Modifyca",
+            repository: "https://github.com/CarlosDanyel/PERSONA-IA",
         },
         cardImage: "/assets/image-5.png",
         images: [
