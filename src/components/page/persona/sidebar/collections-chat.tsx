@@ -100,7 +100,7 @@ export function CollectionsChat() {
                                 >
                                     <Link
                                         className="flex gap-2 w-full"
-                                        href={`/${PAGE_CHAT}/${item.id}`}
+                                        href={`${PAGE_CHAT}/${item.id}`}
                                     >
                                         <DropdownMenuItem className="w-full">
                                             <Folder className="text-muted-foreground" />
