@@ -4,12 +4,12 @@ import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
 
 const basePrompts = [
-    { about: "Quero Conhecer o Carlos" },
-    { about: "Trabalhos" },
+    { about: "Sobre o Carlos Danyel" },
+    { about: "Ações Sociais" },
     { about: "Experiencia" },
-    { about: "Como ele trabalha" },
+    { about: "Projetos Desenvolvidos" },
     { about: "Certificados" },
-    { about: "Currículo" },
+    { about: "Stack Principal" },
 ];
 
 type ChatCarrosselProps = {
