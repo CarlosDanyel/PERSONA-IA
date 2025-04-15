@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form";
 const basePrompts = [
     { about: "Sobre o Carlos Danyel" },
     { about: "Ações Sociais" },
-    { about: "Experiencia" },
+    { about: "Experiencias" },
     { about: "Projetos Desenvolvidos" },
     { about: "Certificados" },
     { about: "Stack Principal" },
